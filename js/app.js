@@ -221,34 +221,133 @@ onclick="goContact()">
 function showResult(){
 
 
+const result =
+recommendProducts(userAnswers);
+
+
+
 questionBox.innerHTML=`
 
 <h2>
-
-AI 분석 완료
-
+AI 분석 결과 🎉
 </h2>
 
 
-<div class="option active">
+<p style="color:#666;margin-top:10px">
 
-복합기 추천 준비 완료
+입력하신 환경을 기준으로<br>
+가장 적합한 복합기를 추천했습니다.
 
-<br><br>
+</p>
 
-출력환경을 분석했습니다.
+
+<div class="result-wrapper">
+
+
+${result.map((product,index)=>`
+
+
+<div class="product-card 
+${index===0?'best':''}">
+
+
+${index===0?`
+
+<div class="best-badge">
+
+AI BEST 추천
+
+</div>
+
+`:''}
+
+
+
+<img 
+class="product-image"
+src="${product.image}"
+onerror="
+this.src='assets/images/no-image.png'
+">
+
+
+<div class="product-brand">
+
+${product.brand}
 
 </div>
 
 
-<button class="next-btn">
+<div class="product-name">
 
-추천 결과 보기
+${product.model}
+
+</div>
+
+
+
+<div class="score-box">
+
+
+추천 적합도
+
+
+<div class="score-number">
+
+${product.score}점
+
+</div>
+
+
+</div>
+
+
+
+<div class="price">
+
+월 ${product.price.toLocaleString()}원~
+
+</div>
+
+
+
+<ul class="feature-list">
+
+
+${product.features
+.map(f=>`
+
+<li>${f}</li>
+
+`)
+.join("")}
+
+
+</ul>
+
+
+
+</div>
+
+
+`).join("")}
+
+
+</div>
+
+
+<button 
+class="next-btn"
+onclick="goContact()">
+
+이 제품으로 상담 신청
 
 </button>
 
+
 `;
 
+}
 
 
 console.log(userAnswers);
