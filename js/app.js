@@ -1,4 +1,3 @@
-
 const startBtn =
 document.getElementById("startBtn");
 
@@ -11,57 +10,31 @@ const questionBox =
 document.getElementById("questionBox");
 
 
+const nextBtn =
+document.getElementById("nextBtn");
+
+
 
 startBtn.onclick=function(){
 
 
 hero.style.display="none";
 
-
 questionBox.style.display="block";
 
 
-loadQuestion();
+renderQuestion();
 
 
 };
 
 
 
-const questions=[
-
-{
-
-title:"어떤 업종인가요?",
-
-options:[
-
-"🏢 사무실",
-
-"🏫 학원",
-
-"🏥 병원",
-
-"🏗 건설",
-
-"🏪 매장"
-
-]
-
-}
-
-];
+function renderQuestion(){
 
 
+const q=getQuestion();
 
-let current=0;
-
-
-
-function loadQuestion(){
-
-
-const q=questions[current];
 
 
 document.getElementById(
@@ -70,24 +43,32 @@ document.getElementById(
 
 
 
+document.getElementById(
+"progressBar"
+).style.width=
+getProgress()+"%";
+
+
+
 let html="";
 
 
-q.options.forEach(item=>{
+q.options.forEach(option=>{
 
 
 html+=`
 
-<div class="option">
+<div class="option"
+onclick="selectOption(this,'${option}')">
 
-${item}
+${option}
 
 </div>
 
 `;
 
-
 });
+
 
 
 document.getElementById(
@@ -95,8 +76,113 @@ document.getElementById(
 ).innerHTML=html;
 
 
+}
+
+
+
+
+let selectedOption="";
+
+
+
+function selectOption(el,value){
+
+
+document.querySelectorAll(
+".option"
+)
+.forEach(x=>
+x.classList.remove("active")
+);
+
+
+
+el.classList.add("active");
+
+
+selectedOption=value;
+
 
 }
 
 
 
+nextBtn.onclick=function(){
+
+
+if(!selectedOption){
+
+alert("항목을 선택해주세요.");
+
+return;
+
+}
+
+
+
+saveAnswer(selectedOption);
+
+
+
+selectedOption="";
+
+
+
+if(nextQuestion()){
+
+
+renderQuestion();
+
+
+}else{
+
+
+showResult();
+
+
+}
+
+
+};
+
+
+
+
+
+function showResult(){
+
+
+questionBox.innerHTML=`
+
+<h2>
+
+AI 분석 완료
+
+</h2>
+
+
+<div class="option active">
+
+복합기 추천 준비 완료
+
+<br><br>
+
+출력환경을 분석했습니다.
+
+</div>
+
+
+<button class="next-btn">
+
+추천 결과 보기
+
+</button>
+
+`;
+
+
+
+console.log(userAnswers);
+
+
+}
