@@ -1,1 +1,90 @@
 
+[
+  {
+    "id": "canon_c3322",
+    "brand": "Canon",
+    "model": "iR ADV C3322",
+    "category": [
+      "사무실",
+      "학원",
+      "병원"
+    ],
+    "color": true,
+    "a3": true,
+    "volume": "medium",
+    "price": 49000,
+    "image": "assets/images/canon-c3322.png",
+    "features": [
+      "컬러 출력",
+      "A3 지원",
+      "빠른 스캔",
+      "중소기업 인기 모델"
+    ]
+  },
+
+
+  {
+    "id": "canon_2925",
+    "brand": "Canon",
+    "model": "iR 2925",
+    "category": [
+      "사무실",
+      "세무",
+      "소기업"
+    ],
+    "color": false,
+    "a3": true,
+    "volume": "low",
+    "price": 29000,
+    "image": "assets/images/canon-2925.png",
+    "features": [
+      "경제적인 유지비",
+      "흑백 출력",
+      "소형 사무실 추천"
+    ]
+  },
+
+
+  {
+    "id": "ricoh_c3010",
+    "brand": "Ricoh",
+    "model": "IM C3010",
+    "category": [
+      "기업",
+      "병원",
+      "교육기관"
+    ],
+    "color": true,
+    "a3": true,
+    "volume": "high",
+    "price": 79000,
+    "image": "assets/images/ricoh-c3010.png",
+    "features": [
+      "고속 출력",
+      "기업용 안정성",
+      "대량 출력"
+    ]
+  },
+
+
+  {
+    "id": "hp_m479",
+    "brand": "HP",
+    "model": "Color LaserJet Pro M479",
+    "category": [
+      "소기업",
+      "홈오피스"
+    ],
+    "color": true,
+    "a3": false,
+    "volume": "low",
+    "price": 39000,
+    "image": "assets/images/hp-m479.png",
+    "features": [
+      "컴팩트 디자인",
+      "무선 출력",
+      "소규모 추천"
+    ]
+  }
+
+]
