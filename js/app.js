@@ -137,7 +137,76 @@ renderQuestion();
 }else{
 
 
-showResult();
+function showResult(){
+
+
+const result =
+recommendProducts(userAnswers);
+
+
+
+questionBox.innerHTML=`
+
+<h2>
+AI 추천 완료 🎉
+</h2>
+
+
+${result.map(product=>`
+
+<div class="option">
+
+<h3>
+${product.brand}
+${product.model}
+</h3>
+
+
+<p>
+
+추천 점수 :
+<strong>
+${product.score}점
+</strong>
+
+</p>
+
+
+<p>
+
+월 렌탈료 :
+<strong>
+${product.price.toLocaleString()}원~
+
+</strong>
+
+</p>
+
+
+<ul>
+
+${product.features
+.map(f=>`<li>${f}</li>`)
+.join("")}
+
+</ul>
+
+
+</div>
+
+
+`).join("")}
+
+<button class="next-btn"
+onclick="goContact()">
+
+상담 신청하기
+
+</button>
+
+`;
+
+}
 
 
 }
